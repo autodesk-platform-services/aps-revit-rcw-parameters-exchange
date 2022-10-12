@@ -155,8 +155,10 @@ Windows (use **PowerShell**)
 environment variable examples:
 - FORGE_CALLBACK_URL: `http://localhost:3000/api/forge/callback/oauth`
 - FORGE_WEBHOOK_URL: `http://808efcdc123456.ngrok.io/api/forge/callback/designautomation`
-- DESIGN_AUTOMATION_NICKNAME: You can pass your client id here
-- DESIGN_AUTOMATION_ACTIVITY_NAME: `ExportImportExcelActivity`
+
+The following are optional:
+- DESIGN_AUTOMATION_NICKNAME: Only necessary if there is a nickname, Forge client id by default.
+- DESIGN_AUTOMATION_ACTIVITY_NAME: Only necessary if the activity name is customized, ExportImportExcelActivity by default.
 
 ### Using the app
 
