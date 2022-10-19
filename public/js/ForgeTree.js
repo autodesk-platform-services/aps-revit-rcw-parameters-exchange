@@ -94,9 +94,7 @@ function prepareUserHubsTree() {
       'types': {
           'default': { 'icon': 'glyphicon glyphicon-question-sign' },
           '#': { 'icon': 'glyphicon glyphicon-user' },
-          'hubs': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360hub.png' },
-          'personalHub': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360hub.png' },
-          'bim360Hubs': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/bim360hub.png' },
+          'bim360Hubs': { 'icon': './res/acc.svg' },
           'bim360projects': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/bim360project.png' },
           'a360projects': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360project.png' },
           'folders': { 'icon': 'glyphicon glyphicon-folder-open' },

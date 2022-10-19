@@ -76,6 +76,8 @@ Highlight the techenique change to support Revit Cloud Model:
 # Demonstration
 [![https://youtu.be/nOAEzimdq5Q](http://img.youtube.com/vi/nOAEzimdq5Q/0.jpg)](http://www.youtube.com/watch?v=nOAEzimdq5Q "Export|Import Revit Cloud Model parameter values to|from Excel")
 
+`Note:` The video is for file-based Revit model, but the workflow should be same for Revit Cloud Model.  
+
 # Live Demo
 [https://rcwexcel.herokuapp.com/](https://rcwexcel.herokuapp.com/)
 
@@ -93,7 +95,7 @@ Highlight the techenique change to support Revit Cloud Model:
 1. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
 2. **Visual Code**: Visual Code (Windows or MacOS).
 3. **ngrok**: Routing tool, [download here](https://ngrok.com/)
-4. **Revit 2019**: required to compile changes into the plugin
+4. **Revit 2023**: required to compile changes into the plugin
 5. **JavaScript ES6** syntax for server-side.
 6. **JavaScript** basic knowledge with **jQuery**
 
@@ -102,7 +104,7 @@ For using this sample, you need an Autodesk developer credentials. Visit the [Fo
 
 ## Running locally
 
-Install [NodeJS](https://nodejs.org), version 8 or newer.
+Install [NodeJS](https://nodejs.org), version 14 or newer.
 
 Clone this project or download it (this `nodejs` branch only). It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
 

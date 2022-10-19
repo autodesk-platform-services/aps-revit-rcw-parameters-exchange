@@ -114,7 +114,7 @@ function apiClientCallAsync( requestMethod, url,  access_token, body=null ){
         }
         request(options, function (error, response, body) {
             if (error) {
-                reject(err);
+                reject(error);
             } else {
                 let resp;
                 try {
