@@ -79,7 +79,7 @@ Highlight the techenique change to support Revit Cloud Model:
 `Note:` The video is for file-based Revit model, but the workflow should be same for Revit Cloud Model.  
 
 # Live Demo
-[https://rcwexcel.herokuapp.com/](https://rcwexcel.herokuapp.com/)
+[https://rcw-excel.herokuapp.com/](https://rcw-excel.herokuapp.com/)
 
 # Main Parts of The Work
 1. Create a Revit Plugin to be used within AppBundle of Design Automation for Revit. Please check [PlugIn](./ExportImportExcelPlugin/) 
@@ -198,19 +198,12 @@ Desktop APIs:
 
 - [Revit](https://knowledge.autodesk.com/support/revit-products/learn-explore/caas/simplecontent/content/my-first-revit-plug-overview.html)
 
-## Troubleshooting
-
-After installing Github desktop for Windows, on the Git Shell, if you see a ***error setting certificate verify locations*** error, use the following:
-
-    git config --global http.sslverify "false"
-
 ## Limitation
 - The free version of [LibXL](http://www.libxl.com) I used will write a banner in the first row of each spreadsheet and it will be able to read only 300 cells (first row is unavailable). If you want to remove banner and reading restriction, you may contact them for a license.
 
 ## Tips & Tricks
 - Before using the sample to call the workitem, you need to setup your Appbundle & Activity of Design Automation, you can follow my Postman script to understand the whole process, or you can simply use the `Configure` button in the Web Application to create the Appbundle & Activity([https://youtu.be/1NCeH7acIko](https://youtu.be/1NCeH7acIko)). 
-- It takes time for BIM360 to automatically translate the new uploaded Revit file version, please wait for a while to see the viewable and properties.
-- Client JavaScript requires modern browser.
+- It takes time for Autodesk Docs to automatically translate the new published Revit Cloud Model, please wait for a while to see the viewable and properties.
 
 
 ## License
