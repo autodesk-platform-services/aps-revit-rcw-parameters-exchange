@@ -19,7 +19,7 @@
 # Description
 This sample is based on [design.automation-nodejs-revit.parameters.excel](https://github.com/Autodesk-Forge/design.automation-nodejs-revit.parameters.excel), it works almost as same as [design.automation-nodejs-revit.parameters.excel](https://github.com/Autodesk-Forge/design.automation-nodejs-revit.parameters.excel), refer to that sample for the general workflow.
 
-The only change of this sample is to support Reviv Cloud Model. The sample demonstrates how to update a Revit Cloud Model stored in Autodesk Docs, using the new engine(later than Revit 2022) of Design Automation for Revit. 
+The only change of this sample is to support Revit Cloud Model. The sample demonstrates how to update a Revit Cloud Model stored in Autodesk Docs, using the new engine(later than Revit 2022) of Design Automation for Revit. 
 
 The sample does two things:
 1. export parameters (Door Type Parameter “Fire Rating”, and/or Door Instance Parameter “Comments”) of Revit Cloud Model to an excel file.
@@ -27,8 +27,8 @@ The sample does two things:
  
 The custom button in a viewer is provided to make it easier to see the parameter values. You can also see the values in the default property panel as well.
 
-# Techenique 
-Highlight the techenique change to support Revit Cloud Model:
+# Technique 
+Highlight the technique change to support Revit Cloud Model:
 
 1. The user's 3 Legged token is required by the Revit Design Automation plugin to handle the Revit Cloud Model, it can be passed as `adsk3LeggedTokenin` in the workitme as follow:
 
