@@ -1,11 +1,11 @@
-# design.automation-nodejs-revit.rcw.parameters.excel
+# aps-revit-rcw-parameters-exchange
 
 [![Node.js](https://img.shields.io/badge/Node.js-14.0-blue.svg)](https://nodejs.org/)
 [![npm](https://img.shields.io/badge/npm-6.0-blue.svg)](https://www.npmjs.com/)
 ![Platforms](https://img.shields.io/badge/Web-Windows%20%7C%20MacOS%20%7C%20Linux-lightgray.svg)
 [![Data-Management](https://img.shields.io/badge/Data%20Management-v1-green.svg)](http://developer.autodesk.com/)
 [![Design-Automation](https://img.shields.io/badge/Design%20Automation-v3-green.svg)](http://developer.autodesk.com/)
-[![Forge-Viewer](https://img.shields.io/badge/Forge%20Viewer-v7-green.svg)](http://developer.autodesk.com/)
+[![APS-Viewer](https://img.shields.io/badge/APS%20Viewer-v7-green.svg)](http://developer.autodesk.com/)
 
 
 ![Windows](https://img.shields.io/badge/Plugins-Windows-lightgrey.svg)
@@ -17,7 +17,7 @@
 [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 # Description
-This sample is based on [design.automation-nodejs-revit.parameters.excel](https://github.com/Autodesk-Forge/design.automation-nodejs-revit.parameters.excel), it works almost as same as [design.automation-nodejs-revit.parameters.excel](https://github.com/Autodesk-Forge/design.automation-nodejs-revit.parameters.excel), refer to that sample for the general workflow.
+This sample is based on [aps-revit-file-parameters-exchange](https://github.com/autodesk-platform-services/aps-revit-file-parameters-exchange), it works almost as same as [aps-revit-file-parameters-exchange](https://github.com/autodesk-platform-services/aps-revit-file-parameters-exchange), refer to that sample for the general workflow.
 
 The only change of this sample is to support Revit Cloud Model. The sample demonstrates how to update a Revit Cloud Model stored in Autodesk Docs, using the new engine(later than Revit 2022) of Design Automation for Revit. 
 
@@ -64,7 +64,7 @@ Highlight the technique change to support Revit Cloud Model:
             doc.SaveCloudModel();
          }
 
-3. Within the Revit plugin, Revit API cann only synchronize the work-shared model with central, no Revit API to publish the model, you can actually publish the Revit Cloud Model by [PublishModel API](https://forge.autodesk.com/en/docs/data/v2/reference/http/PublishModel/) in the `onComplete` callback like:
+3. Within the Revit plugin, Revit API cann only synchronize the work-shared model with central, no Revit API to publish the model, you can actually publish the Revit Cloud Model by [PublishModel API](https://aps.autodesk.com/en/docs/data/v2/reference/http/PublishModel/) in the `onComplete` callback like:
 
                 const commandApi = new CommandsApi();
                 await commandApi.publishModel( workitem.projectId, workitem.cloudModelBody,{}, req.oauth_client, workitem.access_token_3Legged );
@@ -78,9 +78,6 @@ Highlight the technique change to support Revit Cloud Model:
 
 `Note:` The video is for file-based Revit model, but the workflow should be same for Revit Cloud Model.  
 
-# Live Demo
-[https://rcw-excel.herokuapp.com/](https://rcw-excel.herokuapp.com/)
-
 # Main Parts of The Work
 1. Create a Revit Plugin to be used within AppBundle of Design Automation for Revit. Please check [PlugIn](./ExportImportExcelPlugin/) 
 
@@ -92,7 +89,7 @@ Highlight the technique change to support Revit Cloud Model:
 
 ## Prerequisites
 
-1. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
+1. **APS Account**: Learn how to create a APS Account, activate subscription and create an app at [this tutorial](http://aps.autodesk.com/tutorials). 
 2. **Visual Code**: Visual Code (Windows or MacOS).
 3. **ngrok**: Routing tool, [download here](https://ngrok.com/)
 4. **Revit 2023**: required to compile changes into the plugin
@@ -100,7 +97,7 @@ Highlight the technique change to support Revit Cloud Model:
 6. **JavaScript** basic knowledge with **jQuery**
 
 
-For using this sample, you need an Autodesk developer credentials. Visit the [Forge Developer Portal](https://developer.autodesk.com), sign up for an account, then [create an app](https://developer.autodesk.com/myapps/create). For this new app, use **http://localhost:3000/api/forge/callback/oauth** as Callback URL, although is not used on 2-legged flow. Finally take note of the **Client ID** and **Client Secret**.
+For using this sample, you need an Autodesk developer credentials. Visit the [APS Developer Portal](https://developer.autodesk.com), sign up for an account, then [create an app](https://developer.autodesk.com/myapps/create). For this new app, use **http://localhost:3000/api/aps/callback/oauth** as Callback URL, although is not used on 2-legged flow. Finally take note of the **Client ID** and **Client Secret**.
 
 ## Running locally
 
@@ -108,13 +105,13 @@ Install [NodeJS](https://nodejs.org), version 14 or newer.
 
 Clone this project or download it (this `nodejs` branch only). It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
 
-    git clone https://github.com/Autodesk-Forge/design.automation-nodejs-revit.rcw.parameters.excel
+    git clone https://github.com/autodesk-platform-services/aps-revit-rcw-parameters-exchange
 
 Install the required packages using `npm install`.
 
 ### ngrok
 
-Run `ngrok http 3000` to create a tunnel to your local machine, then copy the address into the `FORGE_WEBHOOK_URL` environment variable. Please check [WebHooks](https://forge.autodesk.com/en/docs/webhooks/v1/tutorials/configuring-your-server/) for details.
+Run `ngrok http 3000` to create a tunnel to your local machine, then copy the address into the `APS_WEBHOOK_URL` environment variable. Please check [WebHooks](https://aps.autodesk.com/en/docs/webhooks/v1/tutorials/configuring-your-server/) for details.
 
 ### Environment variables
 
@@ -123,10 +120,10 @@ Set the environment variables with your client ID & secret and finally start it.
 Mac OSX/Linux (Terminal)
 
     npm install
-    export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
-    export FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-    export FORGE_CALLBACK_URL=<<YOUR CALLBACK URL>>
-    export FORGE_WEBHOOK_URL=<<YOUR DESIGN AUTOMATION FOR REVIT CALLBACK URL>>
+    export APS_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+    export APS_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+    export APS_CALLBACK_URL=<<YOUR CALLBACK URL>>
+    export APS_WEBHOOK_URL=<<YOUR DESIGN AUTOMATION FOR REVIT CALLBACK URL>>
     export DESIGN_AUTOMATION_NICKNAME=<<YOUR DESIGN AUTOMATION FOR REVIT NICK NAME>>
     export DESIGN_AUTOMATION_ACTIVITY_NAME=<<YOUR DESIGN AUTOMATION FOR REVIT ACTIVITY NAME>>
     npm start
@@ -134,10 +131,10 @@ Mac OSX/Linux (Terminal)
 Windows (use **Node.js command line** from Start menu)
 
     npm install
-    set FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
-    set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-    set FORGE_CALLBACK_URL=<<YOUR CALLBACK URL>>
-    set FORGE_WEBHOOK_URL=<<YOUR DESIGN AUTOMATION FOR REVIT CALLBACK URL>>
+    set APS_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+    set APS_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+    set APS_CALLBACK_URL=<<YOUR CALLBACK URL>>
+    set APS_WEBHOOK_URL=<<YOUR DESIGN AUTOMATION FOR REVIT CALLBACK URL>>
     set DESIGN_AUTOMATION_NICKNAME=<<YOUR DESIGN AUTOMATION FOR REVIT NICK NAME>>
     set DESIGN_AUTOMATION_ACTIVITY_NAME=<<YOUR DESIGN AUTOMATION FOR REVIT ACTIVITY NAME>>
     npm start
@@ -145,21 +142,21 @@ Windows (use **Node.js command line** from Start menu)
 Windows (use **PowerShell**)
 
     npm install
-    $env:FORGE_CLIENT_ID="YOUR CLIENT ID FROM DEVELOPER PORTAL"
-    $env:FORGE_CLIENT_SECRET="YOUR CLIENT SECRET"
-    $env:FORGE_CALLBACK_URL="YOUR CALLBACK URL"
-    $env:FORGE_WEBHOOK_URL="YOUR DESIGN AUTOMATION FOR REVIT CALLBACK URL"
+    $env:APS_CLIENT_ID="YOUR CLIENT ID FROM DEVELOPER PORTAL"
+    $env:APS_CLIENT_SECRET="YOUR CLIENT SECRET"
+    $env:APS_CALLBACK_URL="YOUR CALLBACK URL"
+    $env:APS_WEBHOOK_URL="YOUR DESIGN AUTOMATION FOR REVIT CALLBACK URL"
     $env:DESIGN_AUTOMATION_NICKNAME="YOUR DESIGN AUTOMATION FOR REVIT NICK NAME"
     $env:DESIGN_AUTOMATION_ACTIVITY_NAME="YOUR DESIGN AUTOMATION FOR REVIT ACTIVITY NAME"
     npm start
 
 **Note.**
 environment variable examples:
-- FORGE_CALLBACK_URL: `http://localhost:3000/api/forge/callback/oauth`
-- FORGE_WEBHOOK_URL: `http://808efcdc123456.ngrok.io/api/forge/callback/designautomation`
+- APS_CALLBACK_URL: `http://localhost:3000/api/aps/callback/oauth`
+- APS_WEBHOOK_URL: `http://808efcdc123456.ngrok.io/api/aps/callback/designautomation`
 
 The following are optional:
-- DESIGN_AUTOMATION_NICKNAME: Only necessary if there is a nickname, Forge client id by default.
+- DESIGN_AUTOMATION_NICKNAME: Only necessary if there is a nickname, APS client id by default.
 - DESIGN_AUTOMATION_ACTIVITY_NAME: Only necessary if the activity name is customized, ExportImportExcelActivity by default.
 
 ### Using the app
@@ -173,25 +170,23 @@ Open the browser: [http://localhost:3000](http://localhost:3000), it provides th
 
 ## Deployment
 
-To deploy this application to Heroku, the **Callback URL** for Forge must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret, Callback URL and Revit Design Automation variables for Forge.
+To deploy this application to Heroku, the **Callback URL** for APS must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret, Callback URL and Revit Design Automation variables for APS.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Autodesk-Forge/design.automation-nodejs-revit.rcw.parameters.excel)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/autodesk-platform-services/aps-revit-rcw-parameters-exchange)
 
 Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy samples to Heroku.
 
 ## Packages used
 
-The [Autodesk Forge](https://www.npmjs.com/package/forge-apis) packages is included by default. Some other non-Autodesk packaged are used, including [socket.io](https://www.npmjs.com/package/socket.io), [express](https://www.npmjs.com/package/express).
+The [Autodesk APS](https://www.npmjs.com/package/forge-apis) packages is included by default. Some other non-Autodesk packaged are used, including [socket.io](https://www.npmjs.com/package/socket.io), [express](https://www.npmjs.com/package/express).
 
 Within the Revit Plugin, [LibXL](http://www.libxl.com) is used to read/write the date of Excel. 
 
 ## Further Reading
 
 Documentation:
-- This sample is based on [Learn Forge Tutorial](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs), please check details there about the basic framework if you are not familar. 
-
-- [Design Automation API](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/overview/)
-- [BIM 360 API](https://developer.autodesk.com/en/docs/bim360/v1/overview/) and [App Provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps)
+- [Design Automation API](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/overview/)
+- [BIM 360 API](https://developer.autodesk.com/en/docs/bim360/v1/overview/) and [App Provisioning](https://aps.autodesk.com/blog/bim-360-docs-provisioning-forge-apps)
 - [Data Management API](httqqqps://developer.autodesk.com/en/docs/data/v2/overview/)
 
 Desktop APIs:
@@ -212,4 +207,4 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 
 ## Written by
 
-Zhong Wu [@johnonsoftware](https://twitter.com/johnonsoftware), [Forge Partner Development](http://forge.autodesk.com)
+Zhong Wu [@johnonsoftware](https://twitter.com/johnonsoftware), [Autodesk Partner Development](http://aps.autodesk.com)

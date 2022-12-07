@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by Autodesk Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -165,7 +165,7 @@ router.post('/datamanagement/v1/folder', async (req, res) => {
     }
 })
 
-// POST /api/forge/oss/objects - uploads new object to given bucket.
+// POST /api/aps/oss/objects - uploads new object to given bucket.
 // Request body must be structured as 'form-data' dictionary
 // with the uploaded file under "fileToUpload" key, and the bucket name under "bucketKey".
 router.post('/datamanagement/v1/oss/object', multer({ dest: 'uploads/' }).single('fileToUpload'), async (req, res, next) => {

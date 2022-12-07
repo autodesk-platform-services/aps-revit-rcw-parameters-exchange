@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by Autodesk Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -16,13 +16,13 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
-// Autodesk Forge configuration
+// Autodesk APS configuration
 module.exports = {
     // Set environment variables or hard-code here
     credentials: {
-        client_id: process.env.FORGE_CLIENT_ID,
-        client_secret: process.env.FORGE_CLIENT_SECRET,
-        callback_url: process.env.FORGE_CALLBACK_URL
+        client_id: process.env.APS_CLIENT_ID,
+        client_secret: process.env.APS_CLIENT_SECRET,
+        callback_url: process.env.APS_CALLBACK_URL
     },
     scopes: {
         // Required scopes for the server-side application
@@ -35,9 +35,9 @@ module.exports = {
         public: ['viewables:read']
     },
     designAutomation:{
-        webhook_url: process.env.FORGE_WEBHOOK_URL,
+        webhook_url: process.env.APS_WEBHOOK_URL,
         endpoint: 'https://developer.api.autodesk.com/da/us-east/v3/',
-        nickname:     process.env.DESIGN_AUTOMATION_NICKNAME?process.env.DESIGN_AUTOMATION_NICKNAME:process.env.FORGE_CLIENT_ID,
+        nickname:     process.env.DESIGN_AUTOMATION_NICKNAME?process.env.DESIGN_AUTOMATION_NICKNAME:process.env.APS_CLIENT_ID,
         activity_name: process.env.DESIGN_AUTOMATION_ACTIVITY_NAME || 'ExportImportExcelActivity',
         appbundle_activity_alias: 'dev',
 

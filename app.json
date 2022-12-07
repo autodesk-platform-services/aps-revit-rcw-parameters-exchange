@@ -1,31 +1,31 @@
 {
-    "name": "design.automation-nodejs-revit.rcw.parameters.excel",
+    "name": "aps-revit-rcw-parameters-exchange",
     "description": "A sample showing how to export & import Revit Cloud Model parameters to Excel by Design Automation Revit service",
-    "repository": "https://github.com/Autodesk-Forge/design.automation-nodejs-revit.rcw.parameters.excel",
+    "repository": "https://github.com/autodesk-platform-services/aps-revit-rcw-parameters-exchange",
     "logo": "https://avatars0.githubusercontent.com/u/8017462?v=3&s=200",
     "keywords": [
         "autodesk",
-        "forge",
+        "aps",
         "design automation"        
     ],
     "env": {
-        "FORGE_CLIENT_ID": {
-            "description": "Forge Client ID"
+        "APS_CLIENT_ID": {
+            "description": "APS Client ID"
         },
-        "FORGE_CLIENT_SECRET": {
-            "description": "Forge Client Secret"
+        "APS_CLIENT_SECRET": {
+            "description": "APS Client Secret"
         },
-        "FORGE_CALLBACK_URL": {
-            "description": "Callback URL of your Forge app, required for 3-legged OAuth",
-            "value": "https://<<YOUR HEROKU APP NAME HERE>>.herokuapp.com/api/forge/callback/oauth"
+        "APS_CALLBACK_URL": {
+            "description": "Callback URL of your APS app, required for 3-legged OAuth",
+            "value": "https://<<YOUR HEROKU APP NAME HERE>>.herokuapp.com/api/aps/callback/oauth"
         },
-        "FORGE_WEBHOOK_URL": {
+        "APS_WEBHOOK_URL": {
             "description": "Callback URL of your webhook",
-            "value": "http://<<YOUR HEROKU APP NAME HERE>>.herokuapp.com/api/forge/callback/designautomation"
+            "value": "http://<<YOUR HEROKU APP NAME HERE>>.herokuapp.com/api/aps/callback/designautomation"
         },
         "DESIGN_AUTOMATION_NICKNAME": {
-            "description": "Revit Design Automation NickName, FORGE_CLIENT_ID by default",
-            "value": "<<YOUR FORGE_CLIENT_ID HERE>>"
+            "description": "Revit Design Automation NickName, APS_CLIENT_ID by default",
+            "value": "<<YOUR APS_CLIENT_ID HERE>>"
         },
         "DESIGN_AUTOMATION_ACTIVITY_NAME": {
             "description": "Revit Design Automation Activity Name",

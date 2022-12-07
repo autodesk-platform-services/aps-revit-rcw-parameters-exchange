@@ -1,6 +1,6 @@
 ﻿/////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by Autodesk Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -180,7 +180,7 @@ async function uploadExcel( file ){
     formData.append('fileToUpload', file);
 
     $.ajax({
-        url: '/api/forge/datamanagement/v1/oss/object',
+        url: '/api/aps/datamanagement/v1/oss/object',
         data: formData,
         processData: false,
         contentType: false,
@@ -204,7 +204,7 @@ async function exportExcel( inputJson){
     let def = $.Deferred();
   
     jQuery.get({
-        url: '/api/forge/da4revit/v1/revit/excel',
+        url: '/api/aps/da4revit/v1/revit/excel',
         contentType: 'application/json', // The data type was sent
         dataType: 'json', // The data type will be received
         data: inputJson,
@@ -224,7 +224,7 @@ async function importExcel( inputExcel, inputJson, itemId, fileName){
     let def = $.Deferred();
 
     jQuery.post({
-        url: '/api/forge/da4revit/v1/revit/excel',
+        url: '/api/aps/da4revit/v1/revit/excel',
         contentType: 'application/json', // The data type was sent
         dataType: 'json', // The data type will be received
         data: JSON.stringify({
@@ -258,7 +258,7 @@ function cancelWorkitem( workitemId ){
     }
   
     $.ajax({
-      url: '/api/forge/da4revit/v1/revit/' + encodeURIComponent(workitemId),
+      url: '/api/aps/da4revit/v1/revit/' + encodeURIComponent(workitemId),
       type: "delete",
       dataType: "json",
       success: function (res) {
@@ -281,7 +281,7 @@ function cancelWorkitem( workitemId ){
     }
   
     jQuery.get({
-      url: '/api/forge/da4revit/v1/revit/' + encodeURIComponent(workitemId),
+      url: '/api/aps/da4revit/v1/revit/' + encodeURIComponent(workitemId),
       dataType: 'json',
       success: function (res) {
         def.resolve(res);

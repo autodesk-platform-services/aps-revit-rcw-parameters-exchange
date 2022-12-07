@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by Autodesk Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -59,8 +59,8 @@ if (!String.prototype.format) {
 }
 
 function prepareLists() {
-    list('engines', '/api/forge/designautomation/engines');
-    list('localBundles', '/api/forge/appbundles');
+    list('engines', '/api/aps/designautomation/engines');
+    list('localBundles', '/api/aps/appbundles');
 }
 
 function list(control, endpoint) {
@@ -82,7 +82,7 @@ async function deleteAppBundle( appBundleName ) {
     let def = $.Deferred();
 
     $.ajax({
-        url: '/api/forge/designautomation/appbundles/' + encodeURIComponent(appBundleName),
+        url: '/api/aps/designautomation/appbundles/' + encodeURIComponent(appBundleName),
         type: "delete",
         dataType: "json",
         success: function (res) {
@@ -99,7 +99,7 @@ async function deleteActivity( activityName) {
     let def = $.Deferred();
 
     $.ajax({
-        url: '/api/forge/designautomation/activities/' + encodeURIComponent(activityName),
+        url: '/api/aps/designautomation/activities/' + encodeURIComponent(activityName),
         type: "delete",
         dataType: "json",
         success: function (res) {
@@ -141,7 +141,7 @@ function createAppBundle(fileName) {
     let def = $.Deferred();
 
     jQuery.ajax({
-        url: 'api/forge/designautomation/appbundles',
+        url: 'api/aps/designautomation/appbundles',
         method: 'POST',
         contentType: 'application/json',
         dataType: 'json',
@@ -163,7 +163,7 @@ function createActivity(fileName) {
     let def = $.Deferred();
 
     jQuery.ajax({
-        url: 'api/forge/designautomation/activities',
+        url: 'api/aps/designautomation/activities',
         method: 'POST',
         contentType: 'application/json',
         dataType: 'json',

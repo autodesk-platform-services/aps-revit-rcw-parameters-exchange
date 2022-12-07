@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by Autodesk Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -23,7 +23,7 @@ const cookieSession = require('cookie-session');
 const PORT = process.env.PORT || 3000;
 const config = require('./config');
 if (config.credentials.client_id == null || config.credentials.client_secret == null) {
-    console.error('Missing FORGE_CLIENT_ID or FORGE_CLIENT_SECRET env. variables.');
+    console.error('Missing APS_CLIENT_ID or APS_CLIENT_SECRET env. variables.');
     return;
 }
 
@@ -42,16 +42,16 @@ if (!String.prototype.format) {
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieSession({
-    name: 'forge_session',
-    keys: ['forge_secure_key'],
+    name: 'aps_session',
+    keys: ['aps_secure_key'],
     maxAge: 14 * 24 * 60 * 60 * 1000 // 14 days, same as refresh token
 }));
 app.use(express.json({ limit: '50mb' }));
-app.use('/api/forge', require('./routes/oauth'));
-app.use('/api/forge', require('./routes/datamanagement'));
-app.use('/api/forge', require('./routes/user'));
-app.use('/api/forge', require('./routes/da4revit'));
-app.use('/api/forge', require('./routes/daconfigure'));
+app.use('/api/aps', require('./routes/oauth'));
+app.use('/api/aps', require('./routes/datamanagement'));
+app.use('/api/aps', require('./routes/user'));
+app.use('/api/aps', require('./routes/da4revit'));
+app.use('/api/aps', require('./routes/daconfigure'));
 
 app.use((err, req, res, next) => {
     console.error(err);
