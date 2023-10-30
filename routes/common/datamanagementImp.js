@@ -182,7 +182,7 @@ async function getVersions(projectId, itemId, oauthClient, credentials, res) {
     const versions_json = versions.body.data.map( (version) => {
         const dateFormated = new Date(version.attributes.lastModifiedTime).toLocaleString();
         const versionst = version.id.match(/^(.*)\?version=(\d+)$/)[2];
-        const viewerUrn = (version.relationships != null && version.relationships.derivatives != null ? version.relationships.derivatives.data.id : null);
+        const viewerUrn = (version.relationships != null && version.relationships.derivatives != null && version.relationships.derivatives.data != null ? version.relationships.derivatives.data.id : null);
         const versionStorage = (version.relationships != null && version.relationships.storage != null &&  version.relationships.storage.meta != null && version.relationships.storage.meta.link != null? version.relationships.storage.meta.link.href : null);
         const revitCloudModelId = version.attributes.extension.data.projectGuid + '|'+version.attributes.extension.data.modelGuid;
         return createTreeNode(
