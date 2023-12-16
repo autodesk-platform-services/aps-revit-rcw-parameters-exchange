@@ -4,7 +4,7 @@
     <RuntimeRequirements OS="Win64"
                          Platform="Revit"
                          SeriesMin="R2022"
-                         SeriesMax="R2023" />
+                         SeriesMax="R2024" />
     <ComponentEntry AppName="ExportImportExcelApp"
                     Version="1.0.0"
                     ModuleName="./Contents/ExportImportExcel.addin"
