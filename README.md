@@ -32,7 +32,7 @@ The custom button in a viewer is provided to make it easier to see the parameter
 # Technique 
 Highlight the technique change to support Revit Cloud Model:
 
-1. The user's 3 Legged token is required by the Revit Design Automation plugin to handle the Revit Cloud Model, it can be passed as `adsk3LeggedTokenin` in the workitme as follow:
+1. The user's 3 Legged token is required by the Revit Design Automation plugin to handle the Revit Cloud Model, it can be passed as `adsk3LeggedToken` in the workitme as follow:
 
         {
             inputXls: {
