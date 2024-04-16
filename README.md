@@ -32,7 +32,7 @@ The custom button in a viewer is provided to make it easier to see the parameter
 # Technique 
 Highlight the technique change to support Revit Cloud Model:
 
-1. The user's 3 Legged token is required by the Revit Design Automation plugin to handle the Revit Cloud Model, it can be passed as `adsk3LeggedToken` in the workitme as follow:
+1. The user's 3 Legged token is required by the Revit Design Automation plugin to handle the Revit Cloud Model, it can be passed as `adsk3LeggedToken` in the work item like this:
 
         {
             inputXls: {
@@ -66,7 +66,7 @@ Highlight the technique change to support Revit Cloud Model:
             doc.SaveCloudModel();
          }
 
-3. Within the Revit plugin, Revit API cann only synchronize the work-shared model with central, no Revit API to publish the model, you can actually publish the Revit Cloud Model by [PublishModel API](https://aps.autodesk.com/en/docs/data/v2/reference/http/PublishModel/) in the `onComplete` callback like:
+3. Within the Revit plugin, Revit API can only synchronize the work-shared model with central, no Revit API to publish the model, you can actually publish the Revit Cloud Model by [PublishModel API](https://aps.autodesk.com/en/docs/data/v2/reference/http/PublishModel/) in the `onComplete` callback like:
 
                 const commandApi = new CommandsApi();
                 await commandApi.publishModel( workitem.projectId, workitem.cloudModelBody,{}, req.oauth_client, workitem.access_token_3Legged );
@@ -99,7 +99,7 @@ Highlight the technique change to support Revit Cloud Model:
 6. **JavaScript** basic knowledge with **jQuery**
 
 
-For using this sample, you need an Autodesk developer credentials. Visit the [APS Developer Portal](https://developer.autodesk.com), sign up for an account, then [create an app](https://developer.autodesk.com/myapps/create). For this new app, use **http://localhost:3000/api/aps/callback/oauth** as Callback URL, although is not used on 2-legged flow. Finally take note of the **Client ID** and **Client Secret**.
+For using this sample, you need Autodesk developer credentials. Visit the [APS Developer Portal](https://developer.autodesk.com), sign up for an account, then [create an app](https://developer.autodesk.com/myapps/create). For this new app, use **http://localhost:3000/api/aps/callback/oauth** as Callback URL, although is not used on 2-legged flow. Finally take note of the **Client ID** and **Client Secret**.
 
 ## Running locally
 
